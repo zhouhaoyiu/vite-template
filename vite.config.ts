@@ -11,6 +11,7 @@ export default defineConfig({
     host: "localhost",
     https: false,
   },
+  
   base: "/",
   build: {
     outDir: "dist",

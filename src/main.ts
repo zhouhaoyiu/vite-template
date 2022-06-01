@@ -1,8 +1,25 @@
-import './style.css'
+import "./style.css";
 
-const app = document.querySelector<HTMLDivElement>('#app')!
+const app = document.querySelector<HTMLDivElement>("#app")!;
+interface IOptions {
+  el: HTMLElement;
+  text: string;
+}
 
-app.innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+class Func implements IOptions{
+  el: HTMLElement;
+  text: string;
+
+  constructor(options: IOptions) {
+    this.el = options.el;
+    this.text = options.text;
+    this.init();
+  }
+
+  init(): void {
+    this.el.innerHTML = this.text;
+  }
+}
+
+const func = new Func({ el: app, text: "Hello World!" });
+console.log(func);
