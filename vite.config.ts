@@ -1,4 +1,5 @@
 /// <reference types="vitest" />
+import { configDefaults } from "vitest/config";
 import { defineConfig } from "vite";
 const isProd = process.env.NODE_ENV === "production";
 
@@ -18,5 +19,8 @@ export default defineConfig({
     assetsInlineLimit: 10000,
     sourcemap: !!isProd,
     chunkSizeWarningLimit: 500,
+  },
+  test: {
+    exclude: [...configDefaults.exclude, "packages/template/*"],
   },
 });
